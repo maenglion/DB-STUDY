@@ -1,4 +1,5 @@
 import { openGlossary, upsertTerm } from './glossary.js';
+import { apiAndModelingTerms } from './terms/2026-09-06-api-modeling.js';
 
 const db = openGlossary();
 
@@ -192,7 +193,7 @@ const terms = [
   }
 ];
 
-for (const term of terms) upsertTerm(db, term);
+for (const term of [...terms, ...apiAndModelingTerms]) upsertTerm(db, term);
 
 db.close();
 console.log('Glossary database is ready.');
